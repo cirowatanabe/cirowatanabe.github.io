@@ -31,6 +31,7 @@ a{
     padding-left: 30px;
     text-align: end;
     width: 100%;
+    position: relative;
 }
 
 #logoemail{
