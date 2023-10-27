@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'polo';
   usuarioLogado: boolean = localStorage.getItem("access_token") != null;
+
+  deslogar(){
+    localStorage.clear();
+  }
 }
