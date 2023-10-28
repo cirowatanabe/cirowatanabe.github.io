@@ -1,15 +1,21 @@
+
 footer{
     background-color: dodgerblue;
     color: white;
-    position: fixed; 
+    position:fixed;
     height: 100px; 
     bottom: 0; 
     width: 100%;
+    text-align: center;
+}
+strong{
+    color: lightgray;
 }
 
 nav{
     background-color: dodgerblue;
     color: white;
+
 }
 img{
     width: 200px;
@@ -32,6 +38,7 @@ a{
     text-align: end;
     width: 100%;
     position: relative;
+    height: 30px;
 }
 
 #logoemail{

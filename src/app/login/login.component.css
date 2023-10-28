@@ -29,3 +29,11 @@ label {
   top: -20px; /* Deslocamento para cima */
   right: -20px; /* Deslocamento para a direita */
 }
+
+#modalLogin {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
