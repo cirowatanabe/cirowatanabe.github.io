@@ -1,11 +1,12 @@
-<div id="layoutAuthentication">
+<div id="layoutAuthentication" >
     <div id="layoutAuthentication_content">
         <main>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-5">
+                    <div class="col-lg-3" id="modalLogin">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
+                              <a href="/"><button id="btnSair" class="btn btn-danger btn-sm" >X</button></a>  
                                 <h3 class="text-center font-weight-light my-4">
                                     {{ cadastrando ? "Cadastrar usuário" : "Entrar" }}
                                 </h3>
@@ -43,12 +44,10 @@
                                             class="form-control" placeholder="Informe sua senha">
                                     </div>
 
-                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <button type="submit" class="btn btn-primary"
-                                            *ngIf="!cadastrando">Entrar</button>
-                                        <button type="button" class="btn btn-success"
-                                            *ngIf="cadastrando" (click)="cadastrar()">Cadastrar</button>
-                                    </div>
+                                    <div class="form-group mt-4 mb-0 d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">Entrar</button>
+                                        <button type="button" class="btn btn-success" *ngIf="cadastrando" (click)="cadastrar()">Cadastrar</button>
+                                      </div>
 
                                 </form>
                             </div>
