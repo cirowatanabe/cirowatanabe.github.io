@@ -9,18 +9,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { ServicosModule } from './servicos/servicos.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProdutosModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServicosModule
   ],
   providers: [
     ProdutosService,
