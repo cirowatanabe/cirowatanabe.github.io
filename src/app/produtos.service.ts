@@ -17,6 +17,7 @@ export class ProdutosService {
   }
 
   delete(id: number) : Observable<any>{
+    console.log("Chamando Service! URL: " + this.apiURL + '/' + id);
     const tokenString = localStorage.getItem('access_token') || '{}'; 
     const token = JSON.parse(tokenString);
     const headers = {

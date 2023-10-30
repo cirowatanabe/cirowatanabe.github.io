@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Produto } from '../produto';
 import { ProdutosService } from 'src/app/produtos.service';
 
@@ -15,8 +15,9 @@ export class ProdutoCardComponent {
 
   constructor(private service: ProdutosService){}
 
-  deletar(){
-
+  deletar(){  
+    this.service.delete(this.produto.idProduto)
+      .subscribe(response => console.log(response));
   }
 
 
