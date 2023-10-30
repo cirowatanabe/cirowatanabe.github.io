@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Produto } from '../produto';
 import { ProdutosService } from 'src/app/produtos.service';
 
@@ -10,6 +10,8 @@ import { ProdutosService } from 'src/app/produtos.service';
 export class ProdutoCardComponent {
 
   @Input() produto: Produto;
+  @Output() successMessage = new EventEmitter<string>();
+  @Output() errorMessage = new EventEmitter<string>();
 
   usuarioLogado: boolean = localStorage.getItem("access_token") != null;
 
@@ -17,7 +19,14 @@ export class ProdutoCardComponent {
 
   deletar(){  
     this.service.delete(this.produto.idProduto)
-      .subscribe(response => console.log(response));
+      .subscribe({
+        next: response => {
+          this.successMessage.emit("Produto excluído com sucesso!")
+        },
+        error: error => {
+          this.errorMessage.emit("Erro inesperado")
+        }
+      });
   }
 
 

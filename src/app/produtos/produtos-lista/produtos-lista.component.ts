@@ -10,6 +10,11 @@ import { ProdutosService } from 'src/app/produtos.service';
 export class ProdutosListaComponent implements OnInit{
 
   produtos: Produto[];
+  sucesso: boolean = false;
+  sucessoMsg: string;
+  erro: boolean = false;
+  erroMsg: string;
+
 
   constructor(
     private service: ProdutosService
@@ -25,6 +30,20 @@ export class ProdutosListaComponent implements OnInit{
 
       }
     })
+  }
+
+  exibirSucesso(msg: string){
+    this.sucessoMsg = msg;
+    this.sucesso = true;
+    this.erro = false;
+    this.ngOnInit();
+  }
+
+  exibirErro(msg: string){
+    this.erroMsg = msg;
+    this.sucessoMsg = '';
+    this.sucesso = false;
+    this.erro = true;
   }
 
 }

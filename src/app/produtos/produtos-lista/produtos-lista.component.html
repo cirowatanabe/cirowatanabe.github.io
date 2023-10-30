@@ -4,9 +4,17 @@
 </ol>
 
 <div class="container">
+    <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="sucesso">
+            {{ sucessoMsg }}
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="erro">
+            {{ erroMsg }}
+        </div>
+    </div>
     <div class="row align-items-center">
         <div class="col mb-5" *ngFor="let item of produtos">
-            <app-produto-card [produto]= "item"></app-produto-card>
+            <app-produto-card [produto]="item" (successMessage)="exibirSucesso($event)" (errorMessage)="exibirErro($event)"></app-produto-card>
         </div>
     </div>
 </div>
