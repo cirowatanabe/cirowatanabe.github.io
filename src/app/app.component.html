@@ -46,9 +46,8 @@
         </li>
       </ul>
       <li class="nav-item d-flex">
-        <a class="nav-link" id="login" routerLink="/login">{{
-          usuarioLogado ? "Bem vindo(a)" : "Login"
-        }}</a>
+        <a class="nav-link" id="login" routerLink="/login" *ngIf="!usuarioLogado">Login</a>
+        <p *ngIf="usuarioLogado">Bem vindo(a), {{ email }}</p>
       </li>
     </div>
   </div>
