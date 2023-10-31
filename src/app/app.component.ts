@@ -12,5 +12,6 @@ export class AppComponent {
 
   deslogar(){
     localStorage.clear();
+    location.reload();
   }
 }
