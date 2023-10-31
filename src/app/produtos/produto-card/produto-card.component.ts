@@ -7,7 +7,7 @@ import { ProdutosService } from 'src/app/produtos.service';
   templateUrl: './produto-card.component.html',
   styleUrls: ['./produto-card.component.css']
 })
-export class ProdutoCardComponent {
+export class ProdutoCardComponent implements OnInit {
 
   @Input() produto: Produto;
   @Output() successMessage = new EventEmitter<string>();
@@ -16,12 +16,16 @@ export class ProdutoCardComponent {
   usuarioLogado: boolean = localStorage.getItem("access_token") != null;
 
   constructor(private service: ProdutosService){}
+  ngOnInit(): void {
+    
+  }
 
   deletar(){  
     this.service.delete(this.produto.idProduto)
       .subscribe({
         next: response => {
-          this.successMessage.emit("Produto excluído com sucesso!")
+          this.successMessage.emit(this.produto.nome + " excluído com sucesso!")
+          this.ngOnInit();
         },
         error: error => {
           this.errorMessage.emit("Erro inesperado")
