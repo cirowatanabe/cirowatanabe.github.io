@@ -12,7 +12,9 @@ export class ProdutoCardComponent implements OnInit {
   @Input() produto: Produto;
   @Output() successMessage = new EventEmitter<string>();
   @Output() errorMessage = new EventEmitter<string>();
+  @Output() editMessage = new EventEmitter<string>();
 
+  produtoEditado: Produto;
   usuarioLogado: boolean = localStorage.getItem("access_token") != null;
 
   constructor(private service: ProdutosService){}
@@ -28,9 +30,22 @@ export class ProdutoCardComponent implements OnInit {
           this.ngOnInit();
         },
         error: error => {
-          this.errorMessage.emit("Erro inesperado")
+          this.errorMessage.emit("Erro inesperado ao excluir")
         }
       });
+  }
+
+  editar(produtoEditado: Produto){
+    console.log(produtoEditado);
+    this.service.update(produtoEditado)
+    .subscribe({
+      next: response => {
+        this.editMessage.emit(produtoEditado.nome + " editado com sucesso!");
+      },
+      error: error => {
+        this.errorMessage.emit("Erro inesperado ao editar")
+      }
+    })
   }
 
 

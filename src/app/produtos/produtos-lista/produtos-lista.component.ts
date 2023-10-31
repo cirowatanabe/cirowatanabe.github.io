@@ -14,6 +14,8 @@ export class ProdutosListaComponent implements OnInit{
   sucessoMsg: string;
   erro: boolean = false;
   erroMsg: string;
+  editMsg: string;
+  edit: boolean = false;
 
 
   constructor(
@@ -41,9 +43,18 @@ export class ProdutosListaComponent implements OnInit{
 
   exibirErro(msg: string){
     this.erroMsg = msg;
-    this.sucessoMsg = '';
     this.sucesso = false;
+    this.edit = false;
     this.erro = true;
+    this.ngOnInit();
+  }
+
+  exibirEditar(msg: string){
+    this.editMsg = msg;
+    this.erro = false;
+    this.sucesso = false;
+    this.edit = true;
+    this.ngOnInit();
   }
 
 }

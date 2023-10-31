@@ -25,4 +25,14 @@ export class ProdutosService {
     }
     return this.http.delete(this.apiURL + '/' + id, {headers});
   }
+
+  update(produtoEditado: Produto) : Observable<any>{
+    console.log("Chamando Service! URL: " + this.apiURL + '/' + produtoEditado.idProduto);
+    const tokenString = localStorage.getItem('access_token') || '{}'; 
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.token
+    }
+    return this.http.put(this.apiURL + '/' + produtoEditado.idProduto, produtoEditado, {headers});
+  }
 }
