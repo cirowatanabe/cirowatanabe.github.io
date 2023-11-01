@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { Produto } from '../produto';
 import { ProdutosService } from 'src/app/produtos.service';
 
@@ -16,6 +16,7 @@ export class ProdutosListaComponent implements OnInit{
   erroMsg: string;
   editMsg: string;
   edit: boolean = false;
+  usuarioLogado: boolean = localStorage.getItem("access_token") != null;
 
 
   constructor(
@@ -37,23 +38,21 @@ export class ProdutosListaComponent implements OnInit{
   exibirSucesso(msg: string){
     this.sucessoMsg = msg;
     this.sucesso = true;
-    this.erro = false;
-    this.ngOnInit();
+    setTimeout(() => this.sucesso = false, 10000); // temporizador do alerta
+    this.ngOnInit(); // recarrega a pag para trazer a lista de produtos atualizados
   }
 
   exibirErro(msg: string){
     this.erroMsg = msg;
-    this.sucesso = false;
-    this.edit = false;
     this.erro = true;
+    setTimeout(() => this.erro = false, 10000);
     this.ngOnInit();
   }
 
   exibirEditar(msg: string){
     this.editMsg = msg;
-    this.erro = false;
-    this.sucesso = false;
     this.edit = true;
+    setTimeout(() => this.edit = false, 10000);
     this.ngOnInit();
   }
 

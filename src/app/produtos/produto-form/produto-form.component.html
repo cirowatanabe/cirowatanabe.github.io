@@ -4,14 +4,15 @@
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" name="nome" id="nome" class="form-control" [(ngModel)]="produto.nome"
-                placeholder="Nome do produto">
+                    placeholder="Nome do produto">
             </div>
-    
+
             <div class="form-group">
-                <label >Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" [(ngModel)]="produto.quantidade" id="quantidade">
+                <label>Quantidade</label>
+                <input type="number" class="form-control" name="quantidade" [(ngModel)]="produto.quantidade"
+                    id="quantidade">
             </div>
-    
+
             <div class="form-control">
                 <label>Preço</label>
                 <input type="number" class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco">
@@ -21,6 +22,8 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-    <button type="submit" class="btn btn-warning"
-        data-bs-dismiss="modal" (click)="editar()">Atualizar</button>
+    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal" (click)="editar()"
+        *ngIf="!cadastrando">Atualizar</button>
+    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="cadastrar()"
+        *ngIf="cadastrando">Cadastrar</button>
 </div>

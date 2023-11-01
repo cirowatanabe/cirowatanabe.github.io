@@ -17,7 +17,6 @@ export class ProdutosService {
   }
 
   delete(id: number) : Observable<any>{
-    console.log("Chamando Service! URL: " + this.apiURL + '/' + id);
     const tokenString = localStorage.getItem('access_token') || '{}'; 
     const token = JSON.parse(tokenString);
     const headers = {
@@ -27,12 +26,20 @@ export class ProdutosService {
   }
 
   update(produtoEditado: Produto) : Observable<any>{
-    console.log("Chamando Service! URL: " + this.apiURL + '/' + produtoEditado.idProduto);
     const tokenString = localStorage.getItem('access_token') || '{}'; 
     const token = JSON.parse(tokenString);
     const headers = {
       'Authorization' : 'Bearer ' + token.token
     }
     return this.http.put(this.apiURL + '/' + produtoEditado.idProduto, produtoEditado, {headers});
+  }
+
+  create(produto: Produto) : Observable<any>{
+    const tokenString = localStorage.getItem('access_token') || '{}'; 
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.token
+    }
+    return this.http.post(this.apiURL, produto, {headers});
   }
 }
