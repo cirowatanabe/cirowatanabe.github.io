@@ -1,4 +1,4 @@
-<div class="modal-body">
+<div class="modal-body ">
     <div class="col-8">
         <form>
             <div class="form-group">
@@ -21,9 +21,9 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal" (click)="editar()"
+    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Fechar</button>
+    <button type="submit" class="btn btn-warning btn-sm" data-bs-dismiss="modal" (click)="editar()"
         *ngIf="!cadastrando">Atualizar</button>
-    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="cadastrar()"
+    <button type="submit" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="cadastrar()"
         *ngIf="cadastrando">Cadastrar</button>
 </div>

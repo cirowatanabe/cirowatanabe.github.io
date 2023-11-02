@@ -1,20 +1,21 @@
-
-  
-
 <nav class="navbar navbar-expand-lg" id="navbarHeader">
   <div class="col-8 justify-content-around d-flex">
     <a href="mailto:contato@polo.com.br" id="mail"
-      ><img
-        src="../assets/email_blue.ico"
-        alt=""
-        id="logoemail"
-      /> contato@polo.com.br</a
+      ><img src="../assets/email_blue.ico" alt="" id="logoemail" />
+      contato@polo.com.br</a
     >
-    <a href="https://wa.me/191234567890" id="mail"><img alt="Chat on WhatsApp" src="../assets/whatsicon.png" id="logoemail"> (19)1234567890</a>
+    <a href="https://wa.me/191234567890" id="mail"
+      ><img
+        alt="Chat on WhatsApp"
+        src="../assets/whatsicon.png"
+        id="logoemail"
+      />
+      (19)1234567890</a
+    >
   </div>
 </nav>
-<nav class="navbar navbar-expand-lg justify-content-around d-flex">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg justify-content-around  d-flex container-fluid ">
+  <div class="container-fluid me-xl-5 ">
     <a class="navbar-brand" href="#"><img src="../assets/polo_logo.jpg" /></a>
     <button
       class="navbar-toggler"
@@ -46,25 +47,73 @@
         </li>
       </ul>
       <li class="nav-item d-flex">
-        <a class="nav-link" id="login" routerLink="/login" *ngIf="!usuarioLogado">Login</a>
+        <a
+          class="nav-link"
+          id="login"
+          routerLink="/login"
+          *ngIf="!usuarioLogado"
+          >Login</a
+        >
       </li>
-      <li class="nav-item d-flex" *ngIf="usuarioLogado"> 
-        <ol>Bem vindo(a), {{ email }}</ol>
-        <ol><a href="#" (click)="deslogar()">Logout</a></ol>
-      </li>
+      <div class="row px-2">
+        <div class="col" *ngIf="usuarioLogado">
+          <div>Bem vindo(a), {{ email }}</div>
+          <div>
+            <a href="#" (click)="deslogar()" style="text-decoration: none"
+              >
+              <img src="../assets/log-out.png" alt="" id="logout" srcset="" title="Sair">
+              Logout</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 <main>
-  <div class="container-fluid" style="margin-bottom: 7rem;">
+  <div class="container-fluid" style="margin-bottom: 7rem">
     <router-outlet></router-outlet>
   </div>
-  <footer class="py-2 mt-auto">
-
-  <hr>
-    <div class="container-fluid">
-        <div><strong>Copyright &copy; POLO ENGENHARIA E COMERCIO DE MATERIAIS ELETRICOS LTDA</strong></div>
+  <footer class="py-5 mt-auto">
+    <div class="container bottom-0">
+      <div class="row">
+        <div class="col justify-content-center  align-content-center">
+          <img src="../assets/polo_logo.jpg" />
+        </div>
+        <div class="col text-start bg-g">
+          <ul class="">
+            <ol class="mb-1">
+              <a href="home">HOME</a>
+            </ol>
+            <ol class="mb-1">
+              <a href="*">SERVIÇOS</a>
+            </ol>
+            <ol class="mb-1">
+              <a href="/produtos">PRODUTOS</a>
+            </ol>
+            <ol class="mb-1">
+              <a href="*">EMPRESA</a>
+            </ol>
+          </ul>
+        </div>
+        <div class="col d-block text-start">
+          <strong>Endereço:</strong>
+          <p class="h6">Rua Luiz Vicentim Sobrinho, 30</p>
+          <p class="h6">Barão Geraldo - 13084-30,</p>
+          <p class="h6">Campinas-SP</p>
+        </div>
+        <div class="col d-block text-start">
+          <strong>Contato:</strong><br />
+          <p class="h6">Telefone: (19)123456789</p>
+          <p class="h6">Vendas: contato@polo.com.br</p>
+        </div>
+      </div>
+      <hr />
+      <div>
+        <strong
+          >Copyright &copy; POLO ENGENHARIA E COMERCIO DE MATERIAIS ELETRICOS
+          LTDA</strong
+        >
+      </div>
     </div>
   </footer>
 </main>
-
