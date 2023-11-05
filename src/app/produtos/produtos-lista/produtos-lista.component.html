@@ -1,44 +1,68 @@
-<h1 class="mt-4">Produtos</h1>
-<ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active" style="color: dodgerblue;">Lista de produtos para encomenda</li>
-</ol>
-
-<p class="mb-4">Adicione os produtos desejados no carrinho e faça o seu pedido diretamente por whatsapp!</p>
-
 <div class="container">
+  <h1 class="mt-4 text-center">Produtos</h1>
+  <div class="row">
+    
+
+    <div class="col">
+      <button
+        *ngIf="usuarioLogado"
+        class="btn btn-primary btn-sm float-end"
+        data-bs-toggle="modal"
+        data-bs-target="#modal-cadastro"
+      >
+        Cadastrar Produto
+      </button>
+    </div>
+  </div>
+
+  <p class="mb-4 p-2 text-primary ">
+    Adicione os produtos desejados no carrinho e faça o seu pedido diretamente
+    por whatsapp!
+  </p>
+
+  <div class="container">
     <div class="col-md-12">
-        <div class="alert alert-success" role="alert" *ngIf="sucesso">
-            {{ sucessoMsg }}
-        </div>
-        <div class="alert alert-danger" role="alert" *ngIf="erro">
-            {{ erroMsg }}
-        </div>
-        <div class="alert alert-warning" role="alert" *ngIf="edit">
-            {{ editMsg }}
-        </div>
+      <div class="alert alert-success" role="alert" *ngIf="sucesso">
+        {{ sucessoMsg }}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="erro">
+        {{ erroMsg }}
+      </div>
+      <div class="alert alert-warning" role="alert" *ngIf="edit">
+        {{ editMsg }}
+      </div>
     </div>
     <div class="row align-items-center">
-        <div class="col mb-5" *ngFor="let item of produtos">
-            <app-produto-card 
-            [produto]="item" 
-            (successMessage)="exibirSucesso($event)" 
-            (errorMessage)="exibirErro($event)"
-            (editMessage)="exibirEditar($event)"></app-produto-card>
-        </div>
+      <div class="col mb-5" *ngFor="let item of produtos">
+        <app-produto-card
+          [produto]="item"
+          (successMessage)="exibirSucesso($event)"
+          (errorMessage)="exibirErro($event)"
+          (editMessage)="exibirEditar($event)"
+        ></app-produto-card>
+      </div>
     </div>
+  </div>
 
-    <button *ngIf="usuarioLogado" class="btn btn-primary" data-bs-toggle="modal"
-    data-bs-target="#modal-cadastro">Cadastrar Produto</button>
-</div>
-
-<div class="modal fade" id="modal-cadastro" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="modal-cadastro" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Cadastrar produto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-           <app-produto-form (enviarMsgSucesso)="exibirSucesso($event)" (enviarMsgErro)="exibirErro($event)"></app-produto-form>
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h1 class="modal-title fs-5 text-center text-light">
+            Cadastrar produto
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
+        <app-produto-form
+          (enviarMsgSucesso)="exibirSucesso($event)"
+          (enviarMsgErro)="exibirErro($event)"
+        ></app-produto-form>
+      </div>
     </div>
+  </div>
 </div>

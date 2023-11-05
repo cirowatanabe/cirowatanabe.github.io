@@ -7,8 +7,8 @@
         <li class="list-group-item">Valor (un.): R${{ produto.preco }}</li>
     </ul>
     <div class="card-body">
-        <button type="button" class="btn btn-outline-success">Adicionar</button>
-        <button type="button" class="btn btn-outline-danger">Remover</button>
+        <button type="button" class="btn btn-outline-success btn-sm ">Adicionar</button>
+        <button type="button" class="btn btn-outline-danger btn-sm ">Remover</button>
         <button type="button" class="btn" *ngIf="usuarioLogado" data-bs-toggle="modal"
             [attr.data-bs-target]="'#modal-' + produto.idProduto">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
@@ -30,16 +30,16 @@
 <div class="modal fade" [id]="'modal-' + produto.idProduto" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Excluir Produto</h1>
+            <div class="modal-header bg-primary ">
+                <h1 class="modal-title fs-5 text-light ">Excluir Produto</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Tem certeza de que deseja excluir {{ produto.nome }}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-danger" (click)="deletar()"
+                <button type="button" class="btn btn-secondary btn-sm " data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger btn-sm" (click)="deletar()"
                     data-bs-dismiss="modal">Excluir</button>
             </div>
         </div>
@@ -49,11 +49,12 @@
 <div class="modal fade" [id]="'modal-edit' + produto.idProduto" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Editar Produto</h1>
+            <div class="modal-header bg-primary ">
+                <h1 class="modal-title fs-5 text-light ">Editar Produto</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
            <app-produto-form [produto]="this.produto" (editarProduto)="editar($event)"></app-produto-form>
         </div>
     </div>
 </div>
+

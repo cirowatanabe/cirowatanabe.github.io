@@ -1,3 +1,4 @@
+
 <div class="modal-body ">
     <div class="col-8">
         <form>
@@ -9,13 +10,12 @@
 
             <div class="form-group">
                 <label>Quantidade</label>
-                <input type="number" class="form-control" name="quantidade" [(ngModel)]="produto.quantidade"
-                    id="quantidade">
+                <input type="number" class="form-control" name="quantidade" placeholder="Quantidade do produto" [(ngModel)]="produto.quantidade" id="quantidade">
             </div>
 
-            <div class="form-control">
+            <div class="form-group">
                 <label>Preço</label>
-                <input type="number" class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco">
+                <input type="number" class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco" placeholder="Preço do produto">
             </div>
         </form>
     </div>
