@@ -3,9 +3,19 @@
     <div class="card-body">
         <h5 class="card-title">{{ produto.nome }}</h5>
     </div>
-    <ul class="list-group list-group-flush">
+    <!-- <ul class="list-group list-group-flush">
         <li class="list-group-item">Valor (un.): R${{ produto.preco }}</li>
-    </ul>
+    </ul> -->
+    <div class="card-body">
+        <a href="#" (click)="abrir($event)" *ngIf="oculto">Ver mais...</a>
+        <div *ngIf="!oculto">
+            <p><strong>Marca: </strong>{{produto.marca}}</p>
+            <p><strong>Garantia: </strong>{{produto.garantia == "S" ? "Sim" : "Não"}}</p>
+            <p><strong>Especificações: </strong>{{produto.especificacoes}}</p>
+            <p><strong>Preço: R$</strong>{{produto.preco}}</p>
+        </div>
+        <a href="#" (click)="fechar($event)" *ngIf="!oculto">Ver menos...</a>
+    </div>
     <div class="card-body">
         <button type="button" class="btn btn-outline-success btn-sm "><i class="bi bi-plus"></i></button>
         <button type="button" class="btn btn-outline-danger btn-sm "><i class="bi bi-x"></i></button>
