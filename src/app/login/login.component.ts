@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
   prepararCadastrar(event: any){
     event.preventDefault();
+    this.errorMessages = [];
     this.user = new User();
     this.cadastrando = true;
   }
