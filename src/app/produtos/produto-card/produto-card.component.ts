@@ -13,6 +13,8 @@ export class ProdutoCardComponent implements OnInit {
   @Output() successMessage = new EventEmitter<string>();
   @Output() errorMessage = new EventEmitter<string>();
   @Output() editMessage = new EventEmitter<string>();
+  @Output() adicionarAoCarrinho = new EventEmitter<Produto>();
+  @Output() removerDoCarrinho = new EventEmitter<number>();
   oculto: boolean;
 
   produtoEditado: Produto;
@@ -58,6 +60,14 @@ export class ProdutoCardComponent implements OnInit {
   fechar(event: any){
     event.preventDefault();
     this.oculto = true;
+  }
+
+  addProduto(){
+    this.adicionarAoCarrinho.emit(this.produto);
+  }
+
+  removeProduto(){
+    this.removerDoCarrinho.emit(this.produto.idProduto);
   }
 
 

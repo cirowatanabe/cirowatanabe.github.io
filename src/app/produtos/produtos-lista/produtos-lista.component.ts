@@ -18,6 +18,8 @@ export class ProdutosListaComponent implements OnInit{
   edit: boolean = false;
   usuarioLogado: boolean = localStorage.getItem("access_token") != null;
 
+  carrinho: Produto[];
+
 
   constructor(
     private service: ProdutosService
@@ -33,6 +35,8 @@ export class ProdutosListaComponent implements OnInit{
 
       }
     })
+
+    this.carrinho = [];
   }
 
   exibirSucesso(msg: string){
@@ -54,6 +58,18 @@ export class ProdutosListaComponent implements OnInit{
     this.edit = true;
     setTimeout(() => this.edit = false, 10000);
     this.ngOnInit();
+  }
+
+  adicionarAoCarrinho(produto: Produto){
+    this.carrinho.push(produto);
+    console.log(this.carrinho);
+  }
+
+  removerDoCarrinho(idProduto: number){
+    this.carrinho = this.carrinho.filter(function( obj ) {
+      return obj.idProduto !== idProduto;
+    });
+    console.log(this.carrinho);
   }
 
 }
