@@ -6,7 +6,7 @@ export class Produto{
     quantidade: number;
     especificacoes: string;
     preco: number;
-    id_categoria: number;
-    id_subcategoria: number;
+    idCategoria: number;
+    idSubCategoria: number;
     id_imagem: number;
 }

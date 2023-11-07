@@ -42,4 +42,8 @@ export class ProdutosService {
     }
     return this.http.post(this.apiURL, produto, {headers});
   }
+
+  filtrarPorCategoria(idCategoria: number) : Observable<any>{
+    return this.http.get(this.apiURL + '/filtrar/' + idCategoria);
+  }
 }

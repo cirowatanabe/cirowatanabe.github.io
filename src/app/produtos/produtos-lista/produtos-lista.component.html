@@ -20,6 +20,13 @@
     por whatsapp!
   </p>
 
+  <select class="form-select mb-4" aria-label="Default select example">
+    <option selected (click)="filtrarPorCategoria(0)">Filtrar por categoria</option>
+    <option *ngFor="let cat of categorias"
+      [value]="cat.idCategoria" (click)="filtrarPorCategoria(cat.idCategoria)">{{ cat.nome }}
+    </option>
+  </select>
+
   <div class="container">
     <div class="col-md-12">
       <div class="alert alert-success" role="alert" *ngIf="sucesso">
