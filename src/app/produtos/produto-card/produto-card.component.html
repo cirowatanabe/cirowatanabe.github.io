@@ -17,8 +17,8 @@
         <a href="#" (click)="fechar($event)" *ngIf="!oculto">Ver menos...</a>
     </div>
     <div class="card-body">
-        <button type="button" class="btn btn-outline-success btn-sm" (click)="addProduto()"><i class="bi bi-plus"></i></button>
-        <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeProduto()"><i class="bi bi-x"></i></button>
+        <button type="button" class="btn btn-outline-success btn-sm" (click)="addProduto()" title="Adiconar ao carrinho"><i class="bi bi-plus"></i></button>
+        <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeProduto()" title="Remover do carrinho"><i class="bi bi-x"></i></button>
         <button type="button" class="btn" *ngIf="usuarioLogado" data-bs-toggle="modal"
             [attr.data-bs-target]="'#modal-' + produto.idProduto">
             <i class="bi bi-trash3"></i>
