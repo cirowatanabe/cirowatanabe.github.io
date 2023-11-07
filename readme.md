@@ -9,3 +9,4 @@ Desenvolvimento de um projeto em Spring Boot, onde é possível realizar o cadas
 5. Execute o projeto.
 
 ### Realizando testes
+utilizar insomminia, thunder cliente ou postman para teste. 
