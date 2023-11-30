@@ -14,16 +14,20 @@ export class ProdutoCardComponent implements OnInit {
   @Output() errorMessage = new EventEmitter<string>();
   @Output() editMessage = new EventEmitter<string>();
   @Output() adicionarAoCarrinho = new EventEmitter<Produto>();
-  @Output() removerDoCarrinho = new EventEmitter<number>();
+  @Output() removerDoCarrinho = new EventEmitter<Produto>();
   oculto: boolean;
+
+  produtoNoCarrinho: boolean;
 
   produtoEditado: Produto;
   usuarioLogado: boolean = localStorage.getItem("access_token") != null;
+  userRole: string = localStorage.getItem("role") || "";
 
   constructor(private service: ProdutosService){}
 
   ngOnInit(): void {
     this.oculto = true;
+    this.produtoNoCarrinho = false;
   }
 
   deletar(){  
@@ -64,10 +68,16 @@ export class ProdutoCardComponent implements OnInit {
 
   addProduto(){
     this.adicionarAoCarrinho.emit(this.produto);
+    this.produtoNoCarrinho = true;
   }
 
   removeProduto(){
-    this.removerDoCarrinho.emit(this.produto.idProduto);
+    const confirm = window.confirm("Remover produto do carrinho?");
+
+    if (confirm){
+      this.removerDoCarrinho.emit(this.produto);
+      this.produtoNoCarrinho = false;
+    }
   }
 
 

@@ -12,12 +12,14 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ServicosModule } from './servicos/servicos.module';
 import { CategoriasService } from './categorias.service';
+import { ClientesModule } from './clientes/clientes.module';
+import { ClientesService } from './clientes.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,12 +27,14 @@ import { CategoriasService } from './categorias.service';
     ProdutosModule,
     HttpClientModule,
     FormsModule,
-    ServicosModule
+    ServicosModule,
+    ClientesModule
   ],
   providers: [
     ProdutosService,
     AuthService,
-    CategoriasService
+    CategoriasService,
+    ClientesService
   ],
   bootstrap: [AppComponent]
 })

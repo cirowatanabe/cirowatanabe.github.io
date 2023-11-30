@@ -15,4 +15,31 @@ export class ServicosService {
   getAll() : Observable<any>{
     return this.http.get<Servico[]>(this.apiURL);
   }
+
+  delete(id: number) : Observable<any>{
+    const tokenString = localStorage.getItem('access_token') || '{}'; 
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.token
+    }
+    return this.http.delete(this.apiURL + '/' + id, {headers});
+  }
+
+  create(servico : Servico) : Observable<any>{
+    const tokenString = localStorage.getItem('access_token') || '{}'; 
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.token
+    }
+    return this.http.post(this.apiURL, servico, {headers});
+  }
+
+  update(servico : Servico) : Observable<any>{
+    const tokenString = localStorage.getItem('access_token') || '{}'; 
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.token
+    }
+    return this.http.put(this.apiURL + '/' + servico.idServico, servico, {headers});
+  }
 }

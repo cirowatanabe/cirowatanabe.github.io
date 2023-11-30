@@ -1,7 +1,7 @@
 
 <div class="modal-body ">
     <div class="col-8">
-        <form>
+        <form enctype="multipart/form-data"> <!--Para envio das imagens-->
             <div class="form-group">
                 <label>Nome: </label>
                 <input type="text" name="nome" id="nome" class="form-control" [(ngModel)]="produto.nome"
@@ -23,11 +23,6 @@
             </div>
 
             <div class="form-group">
-                <label>Quantidade: </label>
-                <input type="number" class="form-control" name="quantidade" placeholder="Quantidade do produto" [(ngModel)]="produto.quantidade" id="quantidade">
-            </div>
-
-            <div class="form-group">
                 <label>Categoria: </label>
                 <select class="form-select" name="categoria" id="categoria" [(ngModel)]="produto.idCategoria">
                     <option *ngFor="let cat of categorias"
@@ -39,6 +34,10 @@
                 <label>Preço: </label>
                 <input type="number" class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco" placeholder="Preço do produto">
             </div>
+            <div class="form-group">
+                <label>Imagem: </label>
+                <input type="file" class="form-control" name="imagem" id="imagem"  placeholder="">
+            </div>
 
             <div class="form-group">
                 <label>Especificações: </label>
@@ -48,6 +47,7 @@
     </div>
 </div>
 <div class="modal-footer">
+    <button type="button" class="btn btn-light btn-sm" (click)="limparFormulario()">Limpar</button>
     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Fechar</button>
     <button type="submit" class="btn btn-warning btn-sm" data-bs-dismiss="modal" (click)="editar()"
         *ngIf="!cadastrando">Atualizar</button>
